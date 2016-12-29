@@ -1,9 +1,8 @@
-$("#main").append("Chris Casson");
+var name = "Chris Casson";
+var role = "Java Developer";
 
-var awesomeThoughts = "I am Chris and I am AWESOME!";
+var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-console.log(awesomeThoughts);
-
-var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-
-$("#main").append(funThoughts);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
