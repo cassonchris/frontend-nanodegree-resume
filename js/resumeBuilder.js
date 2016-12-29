@@ -9,7 +9,37 @@ var bio = {
     },
     "bioPic" : "images/me.jpg",
     "skills" : [ "Java", "SQL" ]
-}
+};
+
+var work = {
+    "positions" : [
+        {
+            "employer" : "P&A",
+            "title" : "Java Developer",
+            "location" : "Chicago, IL"
+        },
+        {
+            "employer" : "Weil McLain",
+            "title" : "IT Intern",
+            "location" : "Michigan City, IN"
+        }
+    ]
+};
+
+var education = {
+    "schools" : [
+        {
+            "schoolName" : "Purdue Calumet",
+            "schoolDegree" : "Master of Science",
+            "schoolMajor" : "Computer Science"
+        },
+        {
+            "schoolName" : "Purdue North Central",
+            "schoolDegree" : "Bachelor of Science",
+            "schoolMajor" : "Computer Information Technology"
+        }
+    ]
+};
 
 var name = "Chris Casson";
 var role = "Java Developer";
