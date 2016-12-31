@@ -199,7 +199,3 @@ education.display();
 projects.display();
 
 $("#mapDiv").append(googleMap);
-
-$(document).click(function(loc) {
-    logClicks(loc.pageX, loc.pageY);
-});
