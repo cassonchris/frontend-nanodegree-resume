@@ -41,8 +41,10 @@ var education = {
     ]
 };
 
-if (bio.skills && bio.skills.length > 0) {
-    var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+if (bio.skills.length > 0) {
     $("#header").prepend(HTMLskillsStart);
-    $("#skills").prepend(formattedSkills);
+    bio.skills.forEach(function(val) {
+        var formattedSkills = HTMLskills.replace("%data%", val);
+        $("#skills").append(formattedSkills);
+    });
 }
