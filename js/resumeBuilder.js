@@ -49,6 +49,22 @@ function displayBio() {
             $("#skills").append(formattedSkills);
         });
     }
+    
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic); 
+        
+    $("#header").prepend(formattedBioPic);
+    $("#header").prepend(formattedLocation);
+    $("#header").prepend(formattedGithub);
+    $("#header").prepend(formattedEmail);
+    $("#header").prepend(formattedMobile);
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName);
 }
 
 function displayWork() {
