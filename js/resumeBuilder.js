@@ -48,3 +48,14 @@ if (bio.skills.length > 0) {
         $("#skills").append(formattedSkills);
     });
 }
+
+if (work.positions.length > 0) {
+    work.positions.forEach(function(val) {
+        $("#workExperience").append(HTMLworkStart);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
+        var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
+        $(".work-entry:last").append(formattedEmployer + formattedTitle);
+        $(".work-entry:last").append(formattedLocation);
+    });
+}
