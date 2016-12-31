@@ -41,21 +41,28 @@ var education = {
     ]
 };
 
-if (bio.skills.length > 0) {
-    $("#header").prepend(HTMLskillsStart);
-    bio.skills.forEach(function(val) {
-        var formattedSkills = HTMLskills.replace("%data%", val);
-        $("#skills").append(formattedSkills);
-    });
+function displayBio() {
+    if (bio.skills.length > 0) {
+        $("#header").prepend(HTMLskillsStart);
+        bio.skills.forEach(function(val) {
+            var formattedSkills = HTMLskills.replace("%data%", val);
+            $("#skills").append(formattedSkills);
+        });
+    }
 }
 
-if (work.positions.length > 0) {
-    work.positions.forEach(function(val) {
-        $("#workExperience").append(HTMLworkStart);
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
-        var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
-        $(".work-entry:last").append(formattedEmployer + formattedTitle);
-        $(".work-entry:last").append(formattedLocation);
-    });
+function displayWork() {
+    if (work.positions.length > 0) {
+        work.positions.forEach(function(val) {
+            $("#workExperience").append(HTMLworkStart);
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
+            var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
+            $(".work-entry:last").append(formattedEmployer + formattedTitle);
+            $(".work-entry:last").append(formattedLocation);
+        });
+    }
 }
+
+displayBio();
+displayWork();
