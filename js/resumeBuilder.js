@@ -41,12 +41,16 @@ var work = {
         {
             "employer" : "P&A",
             "title" : "Java Developer",
-            "location" : "Chicago, IL"
+            "location" : "Chicago, IL",
+            "description" : "Migrated data to new system. Created document system interface.",
+            "dates" : "2013 - present"
         },
         {
             "employer" : "Weil McLain",
             "title" : "IT Intern",
-            "location" : "Michigan City, IN"
+            "location" : "Michigan City, IN",
+            "description" : "Performed help desk functions.",
+            "dates" : "2012"
         }
     ],
     "display" : function() {
@@ -56,8 +60,12 @@ var work = {
             var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
             var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
             var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
+            var formattedDates = HTMLworkDates.replace("%data%", val.dates);
+            var formattedDescription = HTMLworkDescription.replace("%data%", val.description);
             $(".work-entry:last").append(formattedEmployer + formattedTitle);
             $(".work-entry:last").append(formattedLocation);
+            $(".work-entry:last").append(formattedDates);
+            $(".work-entry:last").append(formattedDescription);
         });
     }
     }
@@ -69,13 +77,67 @@ var education = {
             "name" : "Purdue Calumet",
             "degree" : "Master of Science",
             "major" : "Computer Science",
-            "location" : "Hammond, IN"
+            "location" : "Hammond, IN",
+            "dates" : "2013 - 2017"
         },
         {
             "name" : "Purdue North Central",
             "degree" : "Bachelor of Science",
             "major" : "Computer Information Technology",
-            "location" : "Westville, IN"
+            "location" : "Westville, IN",
+            "dates" : "2009 - 2013"
+        }
+    ],
+    "onlineCourses" : [
+        {
+            "title" : "Android Development for Beginners",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/android-development-for-beginners--ud837"
+        },
+        {
+            "title" : "Intro to HTML and CSS",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+        },
+        {
+            "title" : "Intro to Computer Science",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/intro-to-computer-science--cs101"
+        },
+        {
+            "title" : "JavaScript Basics",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/javascript-basics--ud804"
+        },
+        {
+            "title" : "How to Use Git and GitHub",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+        },
+        {
+            "title" : "Programming Foundations with Python",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/programming-foundations-with-python--ud036"
+        },
+        {
+            "title" : "Intro to Relational Databases",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/intro-to-relational-databases--ud197"
+        },
+        {
+            "title" : "Full Stack Foundations",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/full-stack-foundations--ud088"
+        },
+        {
+            "title" : "Data Wrangling with MongoDB",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/data-wrangling-with-mongodb--ud032"
+        },
+        {
+            "title" : "Intro to Physics",
+            "school" : "Udacity",
+            "url" : "https://www.udacity.com/course/intro-to-physics--ph100"
         }
     ],
     "display" : function() {
@@ -85,11 +147,24 @@ var education = {
             var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
             var nameDegree = formattedName + formattedDegree;
             var formattedMajor = HTMLschoolMajor.replace("%data%", school.major);
+            var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
             var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
             $(".education-entry:last").append(nameDegree);
-            $(".education-entry:last").append(formattedMajor);
+            $(".education-entry:last").append(formattedDates);
             $(".education-entry:last").append(formattedLocation);
+            $(".education-entry:last").append(formattedMajor);
         });
+        if (this.onlineCourses.length > 0) {
+            $("#education").append(HTMLonlineClasses);
+            this.onlineCourses.forEach(function(course) {
+                $("#education").append(HTMLschoolStart);
+                var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
+                var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
+                var formattedURL = HTMLonlineURL.replace("%data%", course.url);
+                $(".education-entry:last").append(formattedTitle + formattedSchool);
+                $(".education-entry:last").append(formattedURL);
+            });
+        }
     }
 };
 
