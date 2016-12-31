@@ -41,6 +41,24 @@ var education = {
     ]
 };
 
+var projects = {
+    "projectArray" : [
+        {
+            "title" : "FileUpload",
+            "description" : "JavaScript plugin for uploading files to a server."
+        }
+    ],
+    "display" : function() {
+        this.projectArray.forEach(function(val) {
+            $("#projects").append(HTMLprojectStart);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", val.title);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", val.description);
+            $(".project-entry:last").append(formattedTitle);
+            $(".project-entry:last").append(formattedDescription);
+        });
+    }
+};
+
 function displayBio() {
     if (bio.skills.length > 0) {
         $("#header").prepend(HTMLskillsStart);
@@ -82,6 +100,7 @@ function displayWork() {
 
 displayBio();
 displayWork();
+projects.display();
 
 $(document).click(function(loc) {
     logClicks(loc.pageX, loc.pageY);
