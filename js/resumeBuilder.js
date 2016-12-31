@@ -31,12 +31,14 @@ var education = {
         {
             "schoolName" : "Purdue Calumet",
             "schoolDegree" : "Master of Science",
-            "schoolMajor" : "Computer Science"
+            "schoolMajor" : "Computer Science",
+            "location" : "Hammond, IN"
         },
         {
             "schoolName" : "Purdue North Central",
             "schoolDegree" : "Bachelor of Science",
-            "schoolMajor" : "Computer Information Technology"
+            "schoolMajor" : "Computer Information Technology",
+            "location" : "Westville, IN"
         }
     ]
 };
@@ -101,6 +103,8 @@ function displayWork() {
 displayBio();
 displayWork();
 projects.display();
+
+$("#mapDiv").append(googleMap);
 
 $(document).click(function(loc) {
     logClicks(loc.pageX, loc.pageY);
