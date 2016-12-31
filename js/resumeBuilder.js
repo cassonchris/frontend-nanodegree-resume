@@ -10,14 +10,6 @@ var bio = {
     "bioPic" : "images/me.jpg",
     "skills" : [ "Java", "SQL" ],
     "display" : function() {
-        if (bio.skills.length > 0) {
-            $("#header").prepend(HTMLskillsStart);
-            bio.skills.forEach(function(val) {
-                var formattedSkills = HTMLskills.replace("%data%", val);
-                $("#skills").append(formattedSkills);
-            });
-        }
-
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
         var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
@@ -26,13 +18,28 @@ var bio = {
         var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
         var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 
-        $("#header").prepend(formattedBioPic);
-        $("#header").prepend(formattedLocation);
-        $("#header").prepend(formattedGithub);
-        $("#header").prepend(formattedEmail);
-        $("#header").prepend(formattedMobile);
         $("#header").prepend(formattedRole);
         $("#header").prepend(formattedName);
+                
+        $("#header").append(formattedBioPic);
+        
+        if (bio.skills.length > 0) {
+            $("#header").append(HTMLskillsStart);
+            bio.skills.forEach(function(val) {
+                var formattedSkills = HTMLskills.replace("%data%", val);
+                $("#skills").append(formattedSkills);
+            });
+        }
+        
+        $("#topContacts").append(formattedMobile);
+        $("#topContacts").append(formattedEmail);
+        $("#topContacts").append(formattedGithub);
+        $("#topContacts").append(formattedLocation);
+                
+        $("#footerContacts").append(formattedMobile);
+        $("#footerContacts").append(formattedEmail);
+        $("#footerContacts").append(formattedGithub);
+        $("#footerContacts").append(formattedLocation);
     }
 };
 
