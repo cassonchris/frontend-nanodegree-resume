@@ -10,23 +10,23 @@ var bio = {
     "bioPic" : "images/me.jpg",
     "skills" : [ "Java", "SQL" ],
     "display" : function() {
-        var formattedName = HTMLheaderName.replace("%data%", bio.name);
-        var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-        var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-        var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-        var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-        var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-        var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+        var formattedName = HTMLheaderName.replace("%data%", this.name);
+        var formattedRole = HTMLheaderRole.replace("%data%", this.role);
+        var formattedMobile = HTMLmobile.replace("%data%", this.contacts.mobile);
+        var formattedEmail = HTMLemail.replace("%data%", this.contacts.email);
+        var formattedGithub = HTMLgithub.replace("%data%", this.contacts.github);
+        var formattedLocation = HTMLlocation.replace("%data%", this.contacts.location);
+        var formattedBioPic = HTMLbioPic.replace("%data%", this.bioPic);
 
         $("#header").prepend(formattedRole);
         $("#header").prepend(formattedName);
                 
         $("#header").append(formattedBioPic);
         
-        if (bio.skills.length > 0) {
+        if (this.skills.length > 0) {
             $("#header").append(HTMLskillsStart);
-            bio.skills.forEach(function(val) {
-                var formattedSkills = HTMLskills.replace("%data%", val);
+            this.skills.forEach(function(skill) {
+                var formattedSkills = HTMLskills.replace("%data%", skill);
                 $("#skills").append(formattedSkills);
             });
         }
@@ -61,20 +61,18 @@ var work = {
         }
     ],
     "display" : function() {
-        if (work.jobs.length > 0) {
-            work.jobs.forEach(function(val) {
+        this.jobs.forEach(function(job) {
             $("#workExperience").append(HTMLworkStart);
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
-            var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
-            var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
-            var formattedDates = HTMLworkDates.replace("%data%", val.dates);
-            var formattedDescription = HTMLworkDescription.replace("%data%", val.description);
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+            var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+            var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+            var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
             $(".work-entry:last").append(formattedEmployer + formattedTitle);
             $(".work-entry:last").append(formattedLocation);
             $(".work-entry:last").append(formattedDates);
             $(".work-entry:last").append(formattedDescription);
         });
-    }
     }
 };
 
@@ -183,10 +181,10 @@ var projects = {
         }
     ],
     "display" : function() {
-        this.projects.forEach(function(val) {
+        this.projects.forEach(function(project) {
             $("#projects").append(HTMLprojectStart);
-            var formattedTitle = HTMLprojectTitle.replace("%data%", val.title);
-            var formattedDescription = HTMLprojectDescription.replace("%data%", val.description);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
             $(".project-entry:last").append(formattedTitle);
             $(".project-entry:last").append(formattedDescription);
         });
