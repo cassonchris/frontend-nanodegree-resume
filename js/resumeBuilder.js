@@ -40,3 +40,9 @@ var education = {
         }
     ]
 };
+
+if (bio.skills && bio.skills.length > 0) {
+    var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+    $("#header").prepend(HTMLskillsStart);
+    $("#skills").prepend(formattedSkills);
+}
