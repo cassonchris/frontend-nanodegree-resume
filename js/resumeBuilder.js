@@ -37,7 +37,7 @@ var bio = {
 };
 
 var work = {
-    "positions" : [
+    "jobs" : [
         {
             "employer" : "P&A",
             "title" : "Java Developer",
@@ -50,41 +50,41 @@ var work = {
         }
     ],
     "display" : function() {
-        if (work.positions.length > 0) {
-            work.positions.forEach(function(val) {
-                $("#workExperience").append(HTMLworkStart);
-                var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
-                var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
-                var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
-                $(".work-entry:last").append(formattedEmployer + formattedTitle);
-                $(".work-entry:last").append(formattedLocation);
-            });
-        }
+        if (work.jobs.length > 0) {
+            work.jobs.forEach(function(val) {
+            $("#workExperience").append(HTMLworkStart);
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", val.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", val.title);
+            var formattedLocation = HTMLworkLocation.replace("%data%", val.location);
+            $(".work-entry:last").append(formattedEmployer + formattedTitle);
+            $(".work-entry:last").append(formattedLocation);
+        });
+    }
     }
 };
 
 var education = {
     "schools" : [
         {
-            "schoolName" : "Purdue Calumet",
-            "schoolDegree" : "Master of Science",
-            "schoolMajor" : "Computer Science",
+            "name" : "Purdue Calumet",
+            "degree" : "Master of Science",
+            "major" : "Computer Science",
             "location" : "Hammond, IN"
         },
         {
-            "schoolName" : "Purdue North Central",
-            "schoolDegree" : "Bachelor of Science",
-            "schoolMajor" : "Computer Information Technology",
+            "name" : "Purdue North Central",
+            "degree" : "Bachelor of Science",
+            "major" : "Computer Information Technology",
             "location" : "Westville, IN"
         }
     ],
     "display" : function() {
         this.schools.forEach(function(school) {
             $("#education").append(HTMLschoolStart);
-            var formattedName = HTMLschoolName.replace("%data%", school.schoolName);
-            var formattedDegree = HTMLschoolDegree.replace("%data%", school.schoolDegree);
+            var formattedName = HTMLschoolName.replace("%data%", school.name);
+            var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
             var nameDegree = formattedName + formattedDegree;
-            var formattedMajor = HTMLschoolMajor.replace("%data%", school.schoolMajor);
+            var formattedMajor = HTMLschoolMajor.replace("%data%", school.major);
             var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
             $(".education-entry:last").append(nameDegree);
             $(".education-entry:last").append(formattedMajor);
@@ -94,14 +94,14 @@ var education = {
 };
 
 var projects = {
-    "projectArray" : [
+    "projects" : [
         {
             "title" : "FileUpload",
             "description" : "JavaScript plugin for uploading files to a server."
         }
     ],
     "display" : function() {
-        this.projectArray.forEach(function(val) {
+        this.projects.forEach(function(val) {
             $("#projects").append(HTMLprojectStart);
             var formattedTitle = HTMLprojectTitle.replace("%data%", val.title);
             var formattedDescription = HTMLprojectDescription.replace("%data%", val.description);
